@@ -31,6 +31,14 @@ public class Main {
         return true;
     }
 
+    private static boolean decreasingSequenceNumber(int number) {
+        return increasingSequenceNumber(reverse(number));
+    }
+
+    private static boolean increasingDecreasingSequenceNumber(int number){
+        return increasingSequenceNumber(number)||decreasingSequenceNumber(number);
+    }
+
     private static int sumDigits(int number) {
         int sum = 0;
         while (number % 10 != 0) {
@@ -78,14 +86,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.print(12345 + " g =>   ");
-        System.out.println(dinosaurWeightKilogram(12345) + " kg  and " + dinosaurWeightTon(12345) + " tons");
+        System.out.print(123456789 + " g =>   ");
+        System.out.println(dinosaurWeightKilogram(123456789) + " kg  and " + dinosaurWeightTon(123456789) + " tons");
         System.out.print("the square of the ring with radios 2 and 1 is =>   ");
         System.out.println(ringSquare(2, 1));
         System.out.print("Swap the values of a = 8 and b = 12 =>      ");
         swap(8, 12);
-        System.out.println("123456 increasing sequence? => " + increasingSequenceNumber(123456));
-        System.out.println("658712 increasing sequence? => " + increasingSequenceNumber(658712));
+        System.out.println("123456 increasing/decreasing Sequence? => " + increasingDecreasingSequenceNumber(123456));
+        System.out.println("658712 increasing/decreasing Sequence? => " + increasingDecreasingSequenceNumber(658712));
+        System.out.println("654321 increasing/decreasing Sequence? => " + increasingDecreasingSequenceNumber(654321));
         System.out.println("Sum of the digits of 123456789  =>   " + sumDigits(123456789));
         System.out.println("Product of the digits of 123456789 =>  " + productDigits(123456789));
         System.out.println("Arithmetic mean of digits of 123456789 =>  " + ArithmeticMeanDigits(123456789));
