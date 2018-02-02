@@ -1,7 +1,7 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-class Task2_3 {
+class MoodScanner {
 
     private static int value;
 

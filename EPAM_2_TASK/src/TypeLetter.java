@@ -1,7 +1,7 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-class Task2_2 {
+class TypeLetter {
     private static String letter;
 
     private static String[] vowels = {"a", "e", "y", "u", "i", "o"};
@@ -36,11 +36,8 @@ class Task2_2 {
 
 
     private static boolean IsVowel4(char letter) {
-            if (letter == 'a' || letter == 'A' || letter == 'e' || letter == 'E' ||
-                    letter == 'i' || letter == 'I' || letter == 'o' || letter == 'O' || letter == 'u' || letter == 'U') {
-                return true;
-            }
-            return false;
+        return letter == 'a' || letter == 'A' || letter == 'e' || letter == 'E' ||
+                letter == 'i' || letter == 'I' || letter == 'o' || letter == 'O' || letter == 'u' || letter == 'U';
 
     }
 
@@ -59,7 +56,5 @@ class Task2_2 {
         Scanner in = new Scanner(System.in);
         letter = in.nextLine();
     }
-
-
 }
 

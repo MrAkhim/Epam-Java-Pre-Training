@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-class Task2_4 {
+class Date {
     private static int[] month31 = {1, 3, 5, 7, 8, 10, 12};
     private static int[] month30 = {4, 6, 9, 11};
     private static int day;
     private static int month;
     private static int year;
 
-    private static boolean IsEndFebruary() {
+    private static boolean isEndFebruary() {
         if (day == 28 && month == 2) {
             day = 1;
             month = 3;
@@ -16,7 +16,7 @@ class Task2_4 {
         return false;
     }
 
-    private static boolean NewYear() {
+    private static boolean isNewYear() {
         if (day == 31 && month == 12) {
             day = 1;
             month = 1;
@@ -26,8 +26,8 @@ class Task2_4 {
         return false;
     }
 
-    private static boolean EndOfMonth() {
-        if ((day == 31 && IsDay30_31(month, month31)) || (day == 30 && IsDay30_31(month, month30))) {
+    private static boolean isEndOfMonth() {
+        if ((day == 31 && isDay30_31(month, month31)) || (day == 30 && isDay30_31(month, month30))) {
             day = 1;
             month++;
             return true;
@@ -35,7 +35,7 @@ class Task2_4 {
         return false;
     }
 
-    private static boolean IsDay30_31(int month, int[] character) {
+    private static boolean isDay30_31(int month, int[] character) {
         for (int it : character) {
             if (month == it) {
                 return true;
@@ -45,12 +45,12 @@ class Task2_4 {
     }
 
     private static void solution() {
-        if (!IsEndFebruary() && !NewYear() && !EndOfMonth()) {
+        if (!isEndFebruary() && !isNewYear() && !isEndOfMonth()) {
             day++;
         } else {
-            IsEndFebruary();
-            NewYear();
-            EndOfMonth();
+            isEndFebruary();
+            isNewYear();
+            isEndOfMonth();
         }
     }
 

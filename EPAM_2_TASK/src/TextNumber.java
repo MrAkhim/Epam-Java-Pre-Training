@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Task2_5 {
+class TextNumber {
 
     private static int number;
 
@@ -10,65 +10,65 @@ class Task2_5 {
 
     private static void getDigits(int number) {
         firstDigit = number % 10;
-        secondDigit = number / 10 % 10;
-        thirdDigit = number / 100 % 10;
+        secondDigit = (number /= 10) % 10;
+        thirdDigit = (number / 10) % 10;
     }
 
-    private static String digit3() {
+    private static String textThirdDigit() {
         String str="";
         switch (thirdDigit) {
             case 0:
-                str = digit2();break;
+                str = textSecondDigit();break;
             case 1:
-                str = "one hundred "+digit2();break;
+                str = "one hundred "+textSecondDigit();break;
             case 2:
-                str = "two hundred "+digit2();break;
+                str = "two hundred "+textSecondDigit();break;
             case 3:
-                str = "three hundred "+digit2();break;
+                str = "three hundred "+textSecondDigit();break;
             case 4:
-                str = "four hundred "+digit2();break;
+                str = "four hundred "+textSecondDigit();break;
             case 5:
-                str = "five hundred "+digit2();break;
+                str = "five hundred "+textSecondDigit();break;
             case 6:
-                str = "six hundred "+digit2();break;
+                str = "six hundred "+textSecondDigit();break;
             case 7:
-                str = "seven hundred "+digit2();break;
+                str = "seven hundred "+textSecondDigit();break;
             case 8:
-                str = "eight hundred "+digit2();break;
+                str = "eight hundred "+textSecondDigit();break;
             case 9:
-                str = "nine hundred "+digit2();break;
+                str = "nine hundred "+textSecondDigit();break;
         }
         return str;
     }
 
-    private static String digit2() {
+    private static String textSecondDigit() {
         String str="";
         switch (secondDigit) {
             case 0:
-                str = digit1();break;
+                str = textFirstDigit();break;
             case 1:
-                str = digit2extra();break;
+                str = textSecondDigitSpecial();break;
             case 2:
-                str = "twenty " + digit1();break;
+                str = "twenty " + textFirstDigit();break;
             case 3:
-                str = "thirty " + digit1();break;
+                str = "thirty " + textFirstDigit();break;
             case 4:
-                str = "forty " + digit1();break;
+                str = "forty " + textFirstDigit();break;
             case 5:
-                str = "fifty " + digit1();break;
+                str = "fifty " + textFirstDigit();break;
             case 6:
-                str = "sixty " + digit1();break;
+                str = "sixty " + textFirstDigit();break;
             case 7:
-                str = "seventy " + digit1();break;
+                str = "seventy " + textFirstDigit();break;
             case 8:
-                str = "eighty " + digit1();break;
+                str = "eighty " + textFirstDigit();break;
             case 9:
-                str = "ninety " + digit1();break;
+                str = "ninety " + textFirstDigit();break;
         }
         return str;
     }
 
-    private static String digit2extra() {
+    private static String textSecondDigitSpecial() {
         String str="";
         if (secondDigit == 1) {
             switch (firstDigit) {
@@ -97,7 +97,7 @@ class Task2_5 {
         return str;
     }
 
-    private static String digit1() {
+    private static String textFirstDigit() {
         String str ="";
         switch (firstDigit) {
             case 0:
@@ -128,7 +128,7 @@ class Task2_5 {
         readData();
         System.out.println("\nWhat is the capital equivalent of the number "+number+" ? ");
         getDigits(number);
-        System.out.println("The equivalent is: "+digit3());
+        System.out.println("The equivalent is: "+textThirdDigit());
     }
 
     private static void readData(){

@@ -1,15 +1,21 @@
 import java.util.Scanner;
 
-class Task2_1 {
+class DragonHeadsEyes {
+    private static final int CHILD_DRAGON = 200;
+    private static final int YOUNG_DRAGON = 300;
+    private static final int HEADS_CHILDHOOD = 3;
+    private static final int HEADS_MIDDLE_AGE = 2;
+
+
     private static int age;
 
     private static int amountOfHeads(int age) {
-        if (age < 200) {
-            return age * 3 + 3;
-        } else if (age < 300) {
-            return 199 * 3 + (age - 199) * 2 + 3;
+        if (age < CHILD_DRAGON) {
+            return (age + 1) * HEADS_CHILDHOOD;
+        } else if (age < YOUNG_DRAGON) {
+            return CHILD_DRAGON * HEADS_CHILDHOOD + (age - (CHILD_DRAGON - 1)) * HEADS_MIDDLE_AGE;
         } else
-            return 199 * 3 + 100 * 2 + (age - 299) + 3;
+            return CHILD_DRAGON * HEADS_CHILDHOOD + (YOUNG_DRAGON - CHILD_DRAGON) * HEADS_MIDDLE_AGE + (age - (YOUNG_DRAGON - 1));
     }
 
     private static int amountOfEyes(int age) {
