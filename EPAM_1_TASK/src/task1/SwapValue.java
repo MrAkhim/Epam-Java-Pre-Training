@@ -1,7 +1,8 @@
-package TASK1;
+package task1;
 
-public class Task1_3 {
-    public static void swap(int a, int b) {
+class SwapValue {
+
+    static void swap(int a, int b) {
         a = a + b;
         b = a - b;
         a = a - b;
