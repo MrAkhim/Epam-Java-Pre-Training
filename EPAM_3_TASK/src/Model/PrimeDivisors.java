@@ -1,19 +1,7 @@
-import java.util.Scanner;
+package Model;
 
-class PrimeDivisors {
-
-    static void print() {
-        System.out.println("Enter the number: ");
-        int number = readData();
-        System.out.println("Prime divisors of this number ----->" + getPrimeDivisors(number));
-    }
-
-    private static int readData() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
-    }
-
-    private static String getPrimeDivisors(int number) {////////////////////////////////////////////
+public class PrimeDivisors {
+    public static String getPrimeDivisors(int number) {////////////////////////////////////////////
         String answer = "";
         if (number < 2) {
             System.out.println("This number doesn't have prime divisors");
@@ -37,5 +25,4 @@ class PrimeDivisors {
         }
         return true;
     }
-
 }
