@@ -11,10 +11,10 @@ public class DifferentDigitsNumber {
             }
         }
 
-        return countEdinizy(buffer);
+        return countUnits(buffer);
     }
 
-    private static int countEdinizy(int number) {
+    private static int countUnits(int number) {
         int count = 0;
         for (int i = 0; i < countAmountDigits(number); i++) {
             int digit = (int) (number / Math.pow(10, i) % 10);

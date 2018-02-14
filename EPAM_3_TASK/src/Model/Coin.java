@@ -6,26 +6,15 @@ public class Coin {
 
     private static final int TOSSES = 1000;
 
-
-    private static boolean getRandomNumber() {
-        Random rnd = new Random();
-        return rnd.nextBoolean();
-
-    }
-
     public static int countAmountHeads() {
         int countHeads = 0;
+        Random rnd = new Random();
         for (int i = 0; i < TOSSES; i++) {
-            if (!getRandomNumber()) {
+            if (rnd.nextBoolean()) {
                 countHeads++;
             }
         }
         return countHeads;
     }
-
-    private static int countAmountTails(int amountHeads) {
-        return TOSSES - amountHeads;
-    }
-
 }
 
