@@ -4,12 +4,10 @@ import java.util.Random;
 
 public class Coin {
 
-    private static final int TOSSES = 1000;
-
-    public static int countAmountHeads() {
+    public static int countAmountHeads(int tosses) {
         int countHeads = 0;
         Random rnd = new Random();
-        for (int i = 0; i < TOSSES; i++) {
+        for (int i = 0; i < tosses; i++) {
             if (rnd.nextBoolean()) {
                 countHeads++;
             }

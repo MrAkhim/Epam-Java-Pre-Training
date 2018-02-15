@@ -16,7 +16,8 @@ public class Controller {
     }
 
     private static void printCoins() {
-        View.print("\nif there are 1000 tosses -----> " + Model.Coin.countAmountHeads() + " are heads");
+        int tosses = 1000;
+        View.print("\nif there are 1000 tosses -----> " + Model.Coin.countAmountHeads(tosses) + " are heads");
     }
 
     private static void printAmountDifferentDigits() {
@@ -39,8 +40,8 @@ public class Controller {
     private static void printPalindrome() {
         int number1 = 1230321;
         int number2 = 31254;
-        View.print("\nNumber " + number1 + " is Palindrome? -----> " + Model.Palindrome.isPalindromeNumber(number1));
-        View.print("Number " + number2 + " is Palindrome? -----> " + Model.Palindrome.isPalindromeNumber(number2));
+        View.print("\nNumber " + number1 + " is Palindrome? -----> " + Model.Palindrome.checkPalindromeNumber(number1));
+        View.print("Number " + number2 + " is Palindrome? -----> " + Model.Palindrome.checkPalindromeNumber(number2));
     }
 
     private static void printPerfectNumber() {
@@ -58,8 +59,8 @@ public class Controller {
     private static void printPrimeNumber() {
         int number1 = 1122;
         int number2 = 11;
-        View.print("\nIs number " + number1 + " Prime?  ----->" + Model.PrimeNumber.isPrimeNumber(number1));
-        View.print("Is number " + number2 + " Prime?  ----->" + Model.PrimeNumber.isPrimeNumber(number2));
+        View.print("\nIs number " + number1 + " Prime?  ----->" + Model.PrimeNumber.checkPrimeNumber(number1));
+        View.print("Is number " + number2 + " Prime?  ----->" + Model.PrimeNumber.checkPrimeNumber(number2));
     }
 
 
