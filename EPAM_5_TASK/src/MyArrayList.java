@@ -40,9 +40,9 @@ public class MyArrayList<X> {
     }
 
     private void increaseCapacity(int needCapacity) {
-        if (needCapacity - myArrayListElements.length > 0) {
+        if (needCapacity > myArrayListElements.length) {
             int newCapacity = myArrayListElements.length + (myArrayListElements.length / 2);
-            if (newCapacity - needCapacity < 0) {
+            if (newCapacity < needCapacity) {
                 newCapacity = needCapacity;
             }
             myArrayListElements = Arrays.copyOf(myArrayListElements, newCapacity);
@@ -59,7 +59,7 @@ public class MyArrayList<X> {
     @SuppressWarnings("unchecked")
     public X get(int index) {
         if (index >= amountElements) {
-            throw new ArrayIndexOutOfBoundsException("array index out of bound exception with index at" + index);
+            throw new ArrayIndexOutOfBoundsException("array index out of bound exception" );
         }
         return (X) myArrayListElements[index];
     }
@@ -67,9 +67,9 @@ public class MyArrayList<X> {
     @SuppressWarnings("unchecked")
     public void remove(int index) {
         X deletedElement = (X) myArrayListElements[index];
-        int removeNumber = amountElements - index - 1;
-        if (removeNumber > 0) {
-            System.arraycopy(myArrayListElements, index + 1, myArrayListElements, index, removeNumber);
+        int removeNumberAmount = amountElements - index - 1;
+        if (removeNumberAmount > 0) {
+            System.arraycopy(myArrayListElements, index + 1, myArrayListElements, index, removeNumberAmount);
         }
         myArrayListElements[--amountElements] = null;
     }
@@ -79,11 +79,11 @@ public class MyArrayList<X> {
     }
 
     public int indexOfElement(X element) {
-            for (int i = 0; i < amountElements; i++) {
-                if (element.equals(myArrayListElements[i])) {
-                    return i;
-                }
+        for (int i = 0; i < amountElements; i++) {
+            if (element.equals(myArrayListElements[i])) {
+                return i;
             }
+        }
         return -1;
     }
 
@@ -103,7 +103,7 @@ public class MyArrayList<X> {
         strList.add("str5");
         strList.add("str6");
         strList.add("str7");
-        System.out.println("\n"+ strList.size());
+        System.out.println("\n" + strList.size());
         strList.print();
         System.out.println("");
         strList.remove(5);
@@ -113,8 +113,8 @@ public class MyArrayList<X> {
         System.out.println("");
         strList.print();
         System.out.println("    " + strList.get(6));
-        System.out.println("-----> " + strList.containsElement("str1") );
-        System.out.println("-----> " + strList.containsElement("str14253525") );
+        System.out.println("-----> " + strList.containsElement("str1"));
+        System.out.println("-----> " + strList.containsElement("str14253525"));
 
     }
 }
