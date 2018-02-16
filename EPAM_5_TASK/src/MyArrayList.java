@@ -28,18 +28,18 @@ public class MyArrayList<X> {
     }
 
     public void add(X element) {
-        decreaseCapacity(amountElements + 1);
+        increaseCapacity(amountElements + 1);
         myArrayListElements[amountElements++] = element;
     }
 
     public void add(int index, X element) {
-        decreaseCapacity(amountElements + 1);
+        increaseCapacity(amountElements + 1);
         System.arraycopy(myArrayListElements, index, myArrayListElements, index + 1, amountElements - index);
         amountElements++;
         myArrayListElements[index] = element;
     }
 
-    private void decreaseCapacity(int needCapacity) {
+    private void increaseCapacity(int needCapacity) {
         if (needCapacity - myArrayListElements.length > 0) {
             int newCapacity = myArrayListElements.length + (myArrayListElements.length / 2);
             if (newCapacity - needCapacity < 0) {
