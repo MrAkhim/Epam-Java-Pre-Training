@@ -66,7 +66,6 @@ public class MyArrayList<X> {
 
     @SuppressWarnings("unchecked")
     public void remove(int index) {
-        X deletedElement = (X) myArrayListElements[index];
         int removeNumberAmount = amountElements - index - 1;
         if (removeNumberAmount > 0) {
             System.arraycopy(myArrayListElements, index + 1, myArrayListElements, index, removeNumberAmount);
