@@ -43,7 +43,7 @@ public class MyArrayList<X> {
     }
 
     @SafeVarargs
-    protected final void add(Automobile... elements) {
+    protected final void add(X... elements) {
         for (int i = 0; i < elements.length; i++) {
             increaseCapacity(amountElements + 1);
             myArrayListElements[amountElements + i] = elements[i];

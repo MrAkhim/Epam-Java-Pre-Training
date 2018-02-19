@@ -14,6 +14,7 @@ public class TaxiStation extends MyArrayList {
     public TaxiStation(String fileName) throws FileNotFoundException {
       carPool = Users.readCars(fileName);
     }
+    public TaxiStation(){}
 
     public double countPriceTaxiPark(){
         double price =0;

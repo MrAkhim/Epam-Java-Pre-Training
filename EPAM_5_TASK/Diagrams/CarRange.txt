@@ -1,0 +1,9 @@
+model;carID;fuelConsumption;maxCarryingWeight;maxPassengers;doors
+MercedesSprinter;AA1000LD;14;1900;25;4
+HundaiStarex;AA1003LD;16;1600;25;4
+RenaultTrafic;AB1007SD;17;1750;3;4
+RenaultTrafic;AC1008SF;17;1200;25;4
+OpelVivaro;AB1010SD;21;1500;3;4
+OpelVivaro;AC1011SF;21;1300;5;4
+FiatDucato;AA1015LD;18;1650;3;4
+FiatDucato;AB1016SD;18;1300;25;4

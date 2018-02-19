@@ -2,7 +2,7 @@ package Model.Cars.Transport;
 
 public abstract class Transport {
 
-    protected String carID;
+    protected String ID;
     protected String model;
     protected double fuelConsumption;
     protected double maxCarryingWeight;
@@ -12,21 +12,21 @@ public abstract class Transport {
     protected Transport() {
     }
 
-    protected Transport(String model, String carID, double fuelConsumption, double maxCarryingWeight, int maxPassengers, int doors) {
+    protected Transport(String model, String ID, double fuelConsumption, double maxCarryingWeight, int maxPassengers, int doors) {
         this.model = model;
-        this.carID = carID;
+        this.ID = ID;
         this.fuelConsumption = fuelConsumption;
         this.maxCarryingWeight = maxCarryingWeight;
         this.maxPassengers = maxPassengers;
         this.doors = doors;
     }
 
-    public String getCarID() {
-        return carID;
+    public String getID() {
+        return ID;
     }
 
-    protected void setCarID(String carID) {
-        this.carID = carID;
+    protected void setID(String carID) {
+        this.ID = carID;
     }
 
     public String getModel() {
@@ -51,7 +51,7 @@ public abstract class Transport {
 
     @Override
     public String toString() {
-        return "model: " + model + "\t ID: " + carID + "\t Max Fuel: " + fuelConsumption + "\t Max Carrying Weight: " + maxCarryingWeight +
+        return "model: " + model + "\t ID: " + ID + "\t Max Fuel: " + fuelConsumption + "\t Max Carrying Weight: " + maxCarryingWeight +
                 "\t Max Passengers: " + maxPassengers + "\t Doors:" + doors;
     }
 
@@ -61,14 +61,14 @@ public abstract class Transport {
             return false;
         }
         Transport extra = (Transport) object;
-        return !(!extra.model.equals(model) || !extra.carID.equals(carID) || extra.fuelConsumption != fuelConsumption ||
+        return !(!extra.model.equals(model) || !extra.ID.equals(ID) || extra.fuelConsumption != fuelConsumption ||
                 extra.maxCarryingWeight != maxCarryingWeight || extra.maxPassengers != maxPassengers || extra.doors != doors);
     }
 
     @Override
     public int hashCode() {
         int hash = 1;
-        hash += hash * 33 + carID.hashCode();
+        hash += hash * 33 + ID.hashCode();
         return hash;
     }
 }
