@@ -8,34 +8,38 @@ import Model.Cars.TypesOfCars.TransporterCar;
 
 public class CarBuilder {
 
-    public static Automobile createCar(Automobile automobile) {
+    public static Automobile createCar(String model, String carID, double fuelConsumption, double maxCarryingWeight, int maxPassengers, int doors) {
         Automobile currentCar;
-        if (automobile.getMaxCarryingWeight() > 1400) {
-            if (automobile.getMaxPassengers() > 20) {
-                currentCar = new TransporterCar( automobile.getModel(),automobile.getCarID(), automobile.getFuelConsumption(), automobile.getMaxCarryingWeight());
+        if (maxCarryingWeight > 1400) {
+            if (maxPassengers > 20) {
+                currentCar = new TransporterCar( model,carID, fuelConsumption, maxCarryingWeight);
 
             } else {
-                currentCar = new CarrierCar( automobile.getModel(),automobile.getCarID(), automobile.getFuelConsumption(),
-                        automobile.getMaxCarryingWeight(), automobile.getMaxPassengers());
+                currentCar = new CarrierCar( model,carID, fuelConsumption,
+                        maxCarryingWeight, maxPassengers);
             }
-            currentCar.price = 30000 + automobile.getMaxCarryingWeight() * 0.5 +automobile.getFuelConsumption()*4 +automobile.getMaxPassengers()*0.6;
+            currentCar.price = 30000 + maxCarryingWeight * 0.5 +fuelConsumption*4 +maxPassengers*0.6;
 
         } else {
-            if (automobile.getMaxPassengers() >= 7) {
-                currentCar = new UniversalCar( automobile.getModel(),automobile.getCarID(), automobile.getFuelConsumption(),
-                        automobile.getMaxCarryingWeight(), automobile.getMaxPassengers());
-                currentCar.price = 12500 + automobile.getMaxCarryingWeight() * 0.5 +automobile.getFuelConsumption()*4 +automobile.getMaxPassengers()*0.6;
+            if (maxPassengers >= 7) {
+                currentCar = new UniversalCar( model,carID, fuelConsumption,
+                        maxCarryingWeight, maxPassengers);
+                currentCar.price = 12500 + maxCarryingWeight* 0.5 +fuelConsumption*4 +maxPassengers*0.6;
 
             } else {
-                if (automobile.getDoors() == 4) {
-                    currentCar = new SedanCar( automobile.getModel(),automobile.getCarID(), automobile.getFuelConsumption(), automobile.getMaxCarryingWeight());
+                if (doors == 4) {
+                    currentCar = new SedanCar(model,carID, fuelConsumption, maxCarryingWeight);
                 } else {
-                    currentCar = new HatchbackCar( automobile.getModel(),automobile.getCarID(), automobile.getFuelConsumption(), automobile.getMaxCarryingWeight());
+                    currentCar = new HatchbackCar( model,carID,fuelConsumption, maxCarryingWeight);
                 }
-                currentCar.price = 9000 + automobile.getMaxCarryingWeight() * 0.5 +automobile.getFuelConsumption()*4 +automobile.getMaxPassengers()*0.6;
+                currentCar.price = 9000 + maxCarryingWeight * 0.5 +fuelConsumption*4 +maxPassengers*0.6;
             }
         }
         currentCar.setPrice(Math.round(currentCar.price * 100) / 100.0);
         return currentCar;
+    }
+
+    public static Automobile createCar(Automobile automobile){
+        return CarBuilder.createCar(automobile.getModel(), automobile.getCarID(), automobile.getFuelConsumption(),automobile.getMaxCarryingWeight(), automobile.getMaxPassengers(),automobile.getDoors());
     }
 }
