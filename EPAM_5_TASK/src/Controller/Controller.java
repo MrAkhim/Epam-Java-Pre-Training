@@ -6,8 +6,6 @@ import View.View;
 
 import java.io.FileNotFoundException;
 
-import static Model.Cars.Automobile.CarBuilder.createCar;
-
 public class Controller {
     public static void main(String[] args) throws FileNotFoundException {
         TaxiStation ts = new TaxiStation("C://EPAM_5_TASK//files//CarRange.txt");
@@ -16,8 +14,8 @@ public class Controller {
         ts.addCar(new Automobile("BMW", "30489498", 45, 5, 4, 4));
         View.print("After adding new car: ");
         View.print(ts.toString() + "\n");
-        ts.addCars(new Automobile("BMW", "65478PO", 7895, 545477, 25, 4),
-                new Automobile("BMW_Power", "98413", 4500, 57895, 4, 4),
+        ts.addCars(new Automobile("BMW", "65478PO", 75, 577, 25, 4),
+                new Automobile("BMW_Power", "98413", 43, 595, 4, 4),
                 new Automobile("OPEL_VIVARO", "UGKF45UJ", 45, 5, 4, 4));
         View.print("After adding 3 cars: ");
         View.print(ts.toString() + "\n");
@@ -30,14 +28,14 @@ public class Controller {
         Automobile automobile = new Automobile("BMW", "AE3876QR", 12358, 12564, 4, 4);
         ts.addCarInPosition(4, automobile);
         View.print("\nCheck TaxiPark contains car: ");
-        View.print(ts.checkCarInTaxiPark(createCar(automobile)));
+        View.print(ts.checkCarInTaxiPark(automobile));
         View.print("\nCar in position: ");
         View.print(ts.getCarFromPosition(6).toString());
         View.print("\nAfter deleting all cars: ");
         View.print(ts.deleteAllCars());
-        ts.addCars(new Automobile("BMW", "65478PO", 7895, 545477, 25, 4),
-                new Automobile("BMWpower", "98413", 4500, 57895, 4, 4),
-                new Automobile("OPEL_VIVARO", "UGKF45UJ", 45, 5, 4, 4));
+        ts.addCars(new Automobile("BMW_Usual", "II6547PO", 787, 54, 25, 4),
+                new Automobile("BMW_Power", "QW9841AS", 410, 595, 4, 4),
+                new Automobile("OPEL_Vivaro", "UQ2222MN", 45, 5, 4, 4));
         View.print("\nAfter adding 3 cars: ");
         View.print(ts.toString() + "\n");
         View.print("\nPrice of TaxiPark: ");

@@ -73,7 +73,7 @@ public class TaxiStation extends MyArrayList {
        carPool.remove(index);
     }
     public boolean checkCarInTaxiPark(Automobile element) {
-        return carPool.containsElement(element);
+        return carPool.containsElement(createCar(element));
     }
     @Override
     public String toString() {

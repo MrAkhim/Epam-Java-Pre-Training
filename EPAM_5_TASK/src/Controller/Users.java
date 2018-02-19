@@ -17,12 +17,9 @@ public class Users {
         scanner.nextLine();
         scanner.useDelimiter(p);
         while (scanner.hasNext()) {
-            Automobile automobile = new Automobile(scanner.next(), scanner.next(), scanner.nextDouble(),
-                    scanner.nextDouble(), scanner.nextInt(), scanner.nextInt());
             al.add(CarBuilder.createCar(new Automobile(scanner.next(), scanner.next(), scanner.nextDouble(),
                     scanner.nextDouble(), scanner.nextInt(), scanner.nextInt())));
         }
-        System.out.println(al.size());
         return al;
     }
 }

@@ -15,15 +15,13 @@ public class CarBuilder {
                 currentCar = new TransporterCar( model,carID, fuelConsumption, maxCarryingWeight);
 
             } else {
-                currentCar = new CarrierCar( model,carID, fuelConsumption,
-                        maxCarryingWeight, maxPassengers);
+                currentCar = new CarrierCar( model,carID, fuelConsumption, maxCarryingWeight, maxPassengers);
             }
             currentCar.price = 30000 + maxCarryingWeight * 0.5 +fuelConsumption*4 +maxPassengers*0.6;
 
         } else {
             if (maxPassengers >= 7) {
-                currentCar = new UniversalCar( model,carID, fuelConsumption,
-                        maxCarryingWeight, maxPassengers);
+                currentCar = new UniversalCar( model,carID, fuelConsumption, maxCarryingWeight, maxPassengers);
                 currentCar.price = 12500 + maxCarryingWeight* 0.5 +fuelConsumption*4 +maxPassengers*0.6;
 
             } else {
