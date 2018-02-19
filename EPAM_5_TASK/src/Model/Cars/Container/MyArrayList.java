@@ -1,29 +1,39 @@
+package Model.Cars.Container;
+
+import Model.Cars.Automobile.Automobile;
+
 import java.util.Arrays;
 
 public class MyArrayList<X> {
     private static final int INITIAL_CAPACITY = 10;
-    private int amountElements;
     private static final Object[] EMPTY_ARRAY = {};
 
-
+    private int amountElements;
     private Object[] myArrayListElements = new Object[INITIAL_CAPACITY];
 
-    public MyArrayList(int initialCapacity) {
+    public MyArrayList() {
+        this.myArrayListElements = EMPTY_ARRAY;
+    }
+
+    @SafeVarargs
+    protected  MyArrayList(X... elements) {
+        this.myArrayListElements = new Object[elements.length];
+        System.arraycopy(elements, 0, myArrayListElements, 0, elements.length);
+        amountElements = myArrayListElements.length;
+    }
+
+    protected MyArrayList(int initialCapacity) {
         if (initialCapacity < 0) {
             throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
         }
         this.myArrayListElements = new Object[initialCapacity];
     }
 
-    public MyArrayList() {
-        this.myArrayListElements = EMPTY_ARRAY;
-    }
-
     public int size() {
         return amountElements;
     }
 
-    public boolean isEmpty() {
+    protected boolean isEmpty() {
         return amountElements == 0;
     }
 
@@ -32,7 +42,18 @@ public class MyArrayList<X> {
         myArrayListElements[amountElements++] = element;
     }
 
+    @SafeVarargs
+    protected final void add(Automobile... elements) {
+        for (int i = 0; i < elements.length; i++) {
+            increaseCapacity(amountElements + 1);
+            myArrayListElements[amountElements + i] = elements[i];
+        }
+    }
+
     public void add(int index, X element) {
+        if (index < 0 || index > myArrayListElements.length) {
+            throw new ArrayIndexOutOfBoundsException("");//////////////////////////////////////////////////////
+        }
         increaseCapacity(amountElements + 1);
         System.arraycopy(myArrayListElements, index, myArrayListElements, index + 1, amountElements - index);
         amountElements++;
@@ -49,7 +70,7 @@ public class MyArrayList<X> {
         }
     }
 
-    public void clear() {
+   public void clear() {
         for (int i = 0; i < amountElements; i++) {
             myArrayListElements[i] = null;
         }
@@ -58,14 +79,15 @@ public class MyArrayList<X> {
 
     @SuppressWarnings("unchecked")
     public X get(int index) {
-        if (index >= amountElements) {
-            throw new ArrayIndexOutOfBoundsException("array index out of bound exception" );
+        if (index >= amountElements || index < 0) {
+            throw new ArrayIndexOutOfBoundsException("array index out of bound exception");
         }
         return (X) myArrayListElements[index];
     }
 
     @SuppressWarnings("unchecked")
     public void remove(int index) {
+
         int removeNumberAmount = amountElements - index - 1;
         if (removeNumberAmount > 0) {
             System.arraycopy(myArrayListElements, index + 1, myArrayListElements, index, removeNumberAmount);
@@ -77,7 +99,7 @@ public class MyArrayList<X> {
         return indexOfElement(element) >= 0;
     }
 
-    public int indexOfElement(X element) {
+    protected  int indexOfElement(X element) {
         for (int i = 0; i < amountElements; i++) {
             if (element.equals(myArrayListElements[i])) {
                 return i;
@@ -86,34 +108,43 @@ public class MyArrayList<X> {
         return -1;
     }
 
-    public void print() {
-        for (int i = 0; i < amountElements; i++) {
-            System.out.println(myArrayListElements[i]);
+    @Override
+    public String toString() {
+        if (myArrayListElements == null) {
+            return "null";
         }
+        String stringArray = "";
+        for (int i = 0; i < amountElements; i++) {
+            stringArray += ("{" + myArrayListElements[i] + "} \n");
+        }
+        return stringArray;
     }
 
-    public static void main(String[] args) {
-        MyArrayList<String> strList = new MyArrayList<>();
-        strList.add("str0");
-        strList.add("str1");
-        strList.add("str2");
-        strList.add("str3");
-        strList.add("str4");
-        strList.add("str5");
-        strList.add("str6");
-        strList.add("str7");
-        System.out.println("\n" + strList.size());
-        strList.print();
-        System.out.println("");
-        strList.remove(5);
-        strList.print();
-        strList.add(4, "str111111111111");
-        strList.add(0, "str0000");
-        System.out.println("");
-        strList.print();
-        System.out.println("    " + strList.get(6));
-        System.out.println("-----> " + strList.containsElement("str1"));
-        System.out.println("-----> " + strList.containsElement("str14253525"));
-
+    @Override
+    public boolean equals(Object object) {
+        if ((object == null) || getClass() != object.getClass()) {
+            return false;
+        }
+        MyArrayList array1 = (MyArrayList) object;
+        if (myArrayListElements.length != array1.myArrayListElements.length) {
+            return false;
+        }
+        for (int i = 0; i < myArrayListElements.length; i++) {
+            if (myArrayListElements[i] != array1.myArrayListElements[i]) {
+                return false;
+            }
+        }
+        return true;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 1;
+        for (Object myArrayListElement : myArrayListElements) {
+            hash += hash * 31 + myArrayListElement.hashCode();
+        }
+        return hash;
+    }
+
+
 }
