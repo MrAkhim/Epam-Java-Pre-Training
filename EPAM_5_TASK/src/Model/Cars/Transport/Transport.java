@@ -2,12 +2,12 @@ package Model.Cars.Transport;
 
 public abstract class Transport {
 
-    protected String ID;
-    protected String model;
-    protected double fuelConsumption;
-    protected double maxCarryingWeight;
-    protected int maxPassengers;
-    protected int doors;
+    private String ID;
+    private String model;
+    private double fuelConsumption;
+    private double maxCarryingWeight;
+    private int maxPassengers;
+    private int doors;
 
     protected Transport() {
     }
@@ -32,21 +32,36 @@ public abstract class Transport {
     public String getModel() {
         return model;
     }
+    protected void setModel(String model) {
+        this.model = model;
+    }
 
     public double getFuelConsumption() {
         return fuelConsumption;
+    }
+    protected void setFuelConsumption(double fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
     }
 
     public double getMaxCarryingWeight() {
         return maxCarryingWeight;
     }
+    protected void setMaxCarryingWeight(double maxCarryingWeight) {
+        this.maxCarryingWeight = maxCarryingWeight;
+    }
 
     public int getMaxPassengers() {
         return maxPassengers;
     }
+    protected void setMaxPassengers(int maxPassengers) {
+        this.maxPassengers = maxPassengers;
+    }
 
     public int getDoors() {
         return doors;
+    }
+    protected void setDoors(int doors) {
+        this.doors = doors;
     }
 
     @Override

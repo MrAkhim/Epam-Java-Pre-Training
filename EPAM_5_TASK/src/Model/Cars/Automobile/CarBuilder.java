@@ -17,12 +17,12 @@ public class CarBuilder {
             } else {
                 currentCar = new CarrierCar(model, ID, fuelConsumption, maxCarryingWeight, maxPassengers);
             }
-            currentCar.price = 30000 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + maxPassengers * 0.6;
+            currentCar.setPrice(30000 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + maxPassengers * 0.6);
 
         } else {
             if (maxPassengers >= 7) {
                 currentCar = new UniversalCar(model, ID, fuelConsumption, maxCarryingWeight, maxPassengers);
-                currentCar.price = 12500 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + maxPassengers * 0.6;
+                currentCar.setPrice(12500 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + maxPassengers * 0.6);
 
             } else {
                 if (doors == 4) {
@@ -30,10 +30,10 @@ public class CarBuilder {
                 } else {
                     currentCar = new HatchbackCar(model, ID, fuelConsumption, maxCarryingWeight);
                 }
-                currentCar.price = 9000 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + maxPassengers * 0.6;
+                currentCar.setPrice(9000 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + maxPassengers * 0.6);
             }
         }
-        currentCar.setPrice(Math.round(currentCar.price * 100) / 100.0);
+        currentCar.setPrice(Math.round(currentCar.getPrice() * 100) / 100.0);
         return currentCar;
     }
 

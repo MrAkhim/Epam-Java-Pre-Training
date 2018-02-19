@@ -16,7 +16,7 @@ public class MyArrayList<X> {
     }
 
     @SafeVarargs
-    protected  MyArrayList(X... elements) {
+    protected MyArrayList(X... elements) {
         this.myArrayListElements = new Object[elements.length];
         System.arraycopy(elements, 0, myArrayListElements, 0, elements.length);
         amountElements = myArrayListElements.length;
@@ -70,7 +70,7 @@ public class MyArrayList<X> {
         }
     }
 
-   public void clear() {
+    public void clear() {
         for (int i = 0; i < amountElements; i++) {
             myArrayListElements[i] = null;
         }
@@ -99,7 +99,7 @@ public class MyArrayList<X> {
         return indexOfElement(element) >= 0;
     }
 
-    protected  int indexOfElement(X element) {
+    protected int indexOfElement(X element) {
         for (int i = 0; i < amountElements; i++) {
             if (element.equals(myArrayListElements[i])) {
                 return i;

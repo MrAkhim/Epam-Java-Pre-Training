@@ -8,8 +8,6 @@ public class HatchbackCar extends Automobile {
                         String carID,
                         double fuelConsumption,
                         double maxCarryingWeight) {
-        super(model, carID,  fuelConsumption, maxCarryingWeight);
-        this.maxPassengers = 5;
-        this.doors = 5;
+        super(model, carID, fuelConsumption, maxCarryingWeight, 5, 5);
     }
 }

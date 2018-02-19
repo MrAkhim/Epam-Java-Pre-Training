@@ -3,7 +3,7 @@ package Model.Cars.Automobile;
 import Model.Cars.Transport.Transport;
 
 public class Automobile extends Transport {
-    double price;
+    private double price;
 
     public Automobile() {
         super();
@@ -12,11 +12,6 @@ public class Automobile extends Transport {
 
     public Automobile(String model, String carID, double fuelConsumption, double maxCarryingWeight, int maxPassengers, int doors) {
         super(model, carID, fuelConsumption, maxCarryingWeight, maxPassengers, doors);
-        price = 0;
-    }
-
-    public Automobile(String model, String carID, double fuelConsumption, double maxCarryingWeight) {
-        super(model, carID, fuelConsumption, maxCarryingWeight, 0, 0);
         price = 0;
     }
 

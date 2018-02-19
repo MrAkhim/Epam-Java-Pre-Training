@@ -8,8 +8,6 @@ public class TransporterCar extends Automobile {
                           String carID,
                           double fuelConsumption,
                           double maxCarryingWeight) {
-        super(model, carID, fuelConsumption, maxCarryingWeight);
-        this.maxPassengers = 25;
-        this.doors = 4;
+        super(model, carID, fuelConsumption, maxCarryingWeight, 25, 4);
     }
 }

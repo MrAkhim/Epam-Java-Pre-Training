@@ -9,7 +9,6 @@ public class UniversalCar extends Automobile {
                         double fuelConsumption,
                         double maxCarryingWeight,
                         int maxPassengers) {
-        super(model, carID, fuelConsumption, maxCarryingWeight, maxPassengers, 0);
-        this.doors = 5;
+        super(model, carID, fuelConsumption, maxCarryingWeight, maxPassengers, 5);
     }
 }
