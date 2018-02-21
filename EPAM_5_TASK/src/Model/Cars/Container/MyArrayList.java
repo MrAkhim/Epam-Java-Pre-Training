@@ -1,6 +1,4 @@
-package Model.Cars.Container;
-
-import Model.Cars.Automobile.Automobile;
+package Model.cars.container;
 
 import java.util.Arrays;
 

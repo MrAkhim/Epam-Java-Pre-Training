@@ -1,8 +1,8 @@
 package Controller;
 
-import Model.Cars.Automobile.Automobile;
-import Model.Cars.Automobile.CarBuilder;
-import Model.Cars.Container.MyArrayList;
+import Model.cars.automobile.Automobile;
+import Model.cars.utility.CarBuilder;
+import Model.cars.container.MyArrayList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,8 +17,8 @@ public class Users {
         scanner.nextLine();
         scanner.useDelimiter(p);
         while (scanner.hasNext()) {
-            al.add(CarBuilder.createCar(new Automobile(scanner.next(), scanner.next(), scanner.nextDouble(),
-                    scanner.nextDouble(), scanner.nextInt(), scanner.nextInt())));
+            al.add(CarBuilder.createCar(scanner.next(), scanner.next(), scanner.nextDouble(),
+                    scanner.nextDouble(), scanner.nextInt()));
         }
         return al;
     }

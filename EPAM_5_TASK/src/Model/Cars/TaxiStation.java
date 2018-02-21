@@ -1,12 +1,12 @@
-package Model.Cars;
+package Model.cars;
 
 import Controller.Users;
-import Model.Cars.Automobile.Automobile;
-import Model.Cars.Container.MyArrayList;
+import Model.cars.automobile.Automobile;
+import Model.cars.container.MyArrayList;
 
 import java.io.FileNotFoundException;
 
-import static Model.Cars.Automobile.CarBuilder.createCar;
+import static Model.cars.utility.CarBuilder.createCar;
 
 public class TaxiStation extends MyArrayList {
 
@@ -99,6 +99,6 @@ public class TaxiStation extends MyArrayList {
 
     @Override
     public int hashCode() {
-        return getCarPool().hashCode();
+        return getCarPool().hashCode() + 31;
     }
 }

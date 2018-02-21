@@ -1,7 +1,7 @@
 package Controller;
 
-import Model.Cars.Automobile.Automobile;
-import Model.Cars.TaxiStation;
+import Model.cars.automobile.Automobile;
+import Model.cars.TaxiStation;
 import View.View;
 
 import java.io.FileNotFoundException;
@@ -14,17 +14,17 @@ public class Controller {
         View.print(ts.toString() + "\n");
 
         View.print("After adding new car: ");
-        ts.addCar(new Automobile("BMW", "30489498", 45, 5, 4, 4));
+        ts.addCar(new Automobile("BMW", "30489498", 45, 4));
         View.print(ts.toString() + "\n");
 
         View.print("After adding 3 cars: ");
-        ts.addCars(new Automobile("BMW", "65478PO", 75, 577, 25, 4),
-                new Automobile("BMW_Power", "98413", 43, 595, 4, 4),
-                new Automobile("OPEL_VIVARO", "UGKF45UJ", 45, 5, 4, 4));
+        ts.addCars(new Automobile("BMW", "65478PO", 577, 4),
+                new Automobile("BMW_Power", "98413", 595, 4),
+                new Automobile("OPEL_VIVARO", "UGKF45UJ", 45, 4));
         View.print(ts.toString() + "\n");
 
         View.print("After adding a car to Position: ");
-        ts.addCarInPosition(3, new Automobile("BMW", "AE3876QA", 123, 12564, 4, 4));
+        ts.addCarInPosition(3, new Automobile("BMW", "AE3876QA", 12564, 4));
         View.print(ts.toString() + "\n");
 
         View.print("After removing car from position: ");
@@ -32,7 +32,7 @@ public class Controller {
         View.print(ts.toString() + "\n");
 
         View.print("\nCheck TaxiPark contains car: ");
-        Automobile automobile = new Automobile("BMW", "AE3876QR", 12358, 12564, 4, 4);
+        Automobile automobile = new Automobile("BMW", "AE3876QR", 12564, 4);
         ts.addCarInPosition(4, automobile);
         View.print(ts.checkCarInTaxiPark(automobile));
 
@@ -43,9 +43,9 @@ public class Controller {
         View.print(ts.deleteAllCars());
 
         View.print("\nAfter adding 3 cars: ");
-        ts.addCars(new Automobile("BMW_Usual", "II6547PO", 787, 54, 25, 4),
-                new Automobile("BMW_Power", "QW9841AS", 410, 595, 4, 4),
-                new Automobile("OPEL_Vivaro", "UQ2222MN", 45, 5, 4, 4));
+        ts.addCars(new Automobile("BMW_Usual", "II6547PO", 78717, 4, 581),
+                new Automobile("BMW_Power", "QW9841AS", 1000, 4, 45541),
+                new Automobile("OPEL_Vivaro", "UQ2222MN", 2545, 4, 545454));
         View.print(ts.toString() + "\n");
 
         View.print("\nPrice of TaxiPark: ");
