@@ -3,11 +3,9 @@ package Model;
 public class Equals {
 
     public static boolean equalsRecursion(int N, int S) {
-        boolean equalsValue;
         if (N < 10) {
-            equalsValue = (N == S);
-        } else equalsValue = equalsRecursion(N / 10, S - N % 10);
-        return equalsValue;
+            return N == S;
+        }  return equalsRecursion(N / 10, S - N % 10);
     }
 
     public static boolean equals(int N, int S) {

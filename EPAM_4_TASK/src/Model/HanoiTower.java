@@ -30,17 +30,14 @@ public class HanoiTower {
         while (value < Math.pow(2, rings)) {
             fromPosition = (value & (value - 1)) % 3;
             toPosition = ((value | (value - 1)) + 1) % 3;
-            move(fromPosition, toPosition);
+            Object number = stacks[fromPosition].pop();
+            stacks[toPosition].add(number);
+            answer += "\n" + convertNumberToLetter(fromPosition) + " -> " + convertNumberToLetter(toPosition);
+
             value += 1;
         }
     }
 
-
-    private static void move(int frm, int to) {
-        Object number = stacks[frm].pop();
-        stacks[to].add(number);
-        answer += "\n" + convertNumberToLetter(frm) + " -> " + convertNumberToLetter(to);
-    }
 
     private static char convertNumberToLetter(int number) {
         char name = '\0';

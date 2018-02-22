@@ -12,10 +12,10 @@ public class SumDigits {
     }
 
     public static int sumDigitsRecursion(int number) {
-        if (number > 10)
+        if (number > 10) {
             return (number % 10) + sumDigitsRecursion(number / 10);
-        else
-            return number;
+        }
+        return number;
     }
 
 }
