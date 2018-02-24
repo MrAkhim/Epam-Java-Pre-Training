@@ -64,7 +64,7 @@ public class Automobile extends Transport {
 
     @Override
     public String toString() {
-        return super.toString() + "\t Max Fuel: " + fuelConsumption + "\t Doors:" + doors;
+        return super.toString() + "\t Price: " + price + "\t Max Fuel: " + fuelConsumption + "\t Doors:" + doors;
     }
 
     @Override

@@ -18,9 +18,9 @@ public class CarBuilder {
 
         } else {
                 if (doors == 4) {
-                    currentCar = new SedanCar(model, ID, fuelConsumption, extraInformation);
+                    currentCar = new SedanCar(model, ID, fuelConsumption);
                 } else {
-                    currentCar = new HatchbackCar(model, ID, fuelConsumption, extraInformation);
+                    currentCar = new HatchbackCar(model, ID, fuelConsumption);
                 }
 
             }

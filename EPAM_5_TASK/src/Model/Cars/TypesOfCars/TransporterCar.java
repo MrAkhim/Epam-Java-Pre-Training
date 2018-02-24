@@ -21,6 +21,18 @@ public class TransporterCar extends Automobile {
         this.amountHeavers = rnd.nextInt(4);
     }
 
+    public TransporterCar(String model,
+                          String carID,
+                          double fuelConsumption,
+                          double maxCarryingWeight,
+                          double price,
+                          int amountHeavers) {
+        super(model, carID, fuelConsumption, DOORS);
+        this.setPrice(price);
+        this.maxCarryingWeight = maxCarryingWeight;
+        this.amountHeavers = amountHeavers;
+    }
+
     public double getMaxCarryingWeight() {
         return maxCarryingWeight;
     }
@@ -56,6 +68,4 @@ public class TransporterCar extends Automobile {
         return super.hashCode() + (int) maxCarryingWeight + amountHeavers;
 
     }
-
-
 }

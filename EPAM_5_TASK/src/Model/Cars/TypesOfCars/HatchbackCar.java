@@ -14,13 +14,24 @@ public class HatchbackCar extends Automobile {
 
     public HatchbackCar(String model,
                         String carID,
-                        double fuelConsumption,
-                        double maxCarryingWeight) {
+                        double fuelConsumption) {
         super(model, carID, fuelConsumption, DOORS);
-        this.setPrice(9000 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + MAX_PASSENGERS * 0.6);
+        this.setPrice(9000 + fuelConsumption * 4 + MAX_PASSENGERS * 0.6);
         Random rnd = new Random();
         this.passwordWiFi = this.getID() + "_" + rnd.nextInt(123456);
         this.hasBabyCarSeat = rnd.nextBoolean();
+    }
+
+    public HatchbackCar(String model,
+                        String carID,
+                        double fuelConsumption,
+                        double price,
+                        String passwordWiFi,
+                        boolean hasBabyCarSeat) {
+        super(model, carID, fuelConsumption, DOORS);
+        this.setPrice(price);
+        this.passwordWiFi = this.getID() + "_" + passwordWiFi;
+        this.hasBabyCarSeat = hasBabyCarSeat;
     }
 
     public void setGetHasBabyCarSeat(boolean hasBabyCarSeat) {

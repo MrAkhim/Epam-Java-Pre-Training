@@ -6,7 +6,6 @@ import Model.cars.container.MyArrayList;
 
 import java.io.FileNotFoundException;
 
-import static Model.cars.utility.CarBuilder.createCar;
 
 public class TaxiStation extends MyArrayList {
 
@@ -57,17 +56,17 @@ public class TaxiStation extends MyArrayList {
 
     public void addCar(Automobile element) {
 
-        carPool.add(createCar(element));
+        carPool.add(element);
     }
 
     public void addCars(Automobile... elements) {
         for (Automobile element : elements) {
-            carPool.add(createCar(element));
+            carPool.add(element);
         }
     }
 
     public void addCarInPosition(int index, Automobile element) {
-        carPool.add(index, createCar(element));
+        carPool.add(index, element);
     }
 
     public String deleteAllCars() {
@@ -84,7 +83,7 @@ public class TaxiStation extends MyArrayList {
     }
 
     public boolean checkCarInTaxiPark(Automobile element) {
-        return carPool.containsElement(createCar(element));
+        return carPool.containsElement(element);
     }
 
     @Override

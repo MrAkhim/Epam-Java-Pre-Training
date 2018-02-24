@@ -21,6 +21,18 @@ public class CarrierCar extends Automobile {
         this.driverRating = rnd.nextInt(11);
     }
 
+    public CarrierCar(String model,
+                      String carID,
+                      double fuelConsumption,
+                      int maxPassengers,
+                      double price,
+                      int driverRating) {
+        super(model, carID, fuelConsumption, DOORS);
+        this.setPrice(price);
+        this.maxPassenger = maxPassengers;
+        this.driverRating = driverRating;
+    }
+
     public void setMaxPassenger(int maxPassenger) {
         this.maxPassenger = maxPassenger;
     }

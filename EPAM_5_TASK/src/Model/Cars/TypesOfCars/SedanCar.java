@@ -14,13 +14,24 @@ public class SedanCar extends Automobile {
 
     public SedanCar(String model,
                     String carID,
-                    double fuelConsumption,
-                    double maxCarryingWeight) {
+                    double fuelConsumption) {
         super(model, carID, fuelConsumption, DOORS);
-        this.setPrice(10000 + maxCarryingWeight * 0.5 + fuelConsumption * 4 + MAX_PASSENGERS * 0.6);
+        this.setPrice(10000 + fuelConsumption * 4 + MAX_PASSENGERS * 0.6);
         Random rnd = new Random();
         this.hasRailings = rnd.nextBoolean();
         this.comfortRating = rnd.nextInt(11);
+    }
+
+    public SedanCar(String model,
+                    String carID,
+                    double fuelConsumption,
+                    double price,
+                    int comfortRating,
+                    boolean hasRailings) {
+        super(model, carID, fuelConsumption, DOORS);
+        this.setPrice(price);
+        this.hasRailings = hasRailings;
+        this.comfortRating = comfortRating;
     }
 
     public void setComfortRating(int comfortRating) {

@@ -2,9 +2,15 @@ package Controller;
 
 import Model.cars.automobile.Automobile;
 import Model.cars.TaxiStation;
+import Model.cars.typesOfCars.CarrierCar;
+import Model.cars.typesOfCars.HatchbackCar;
+import Model.cars.typesOfCars.SedanCar;
+import Model.cars.typesOfCars.TransporterCar;
 import View.View;
 
 import java.io.FileNotFoundException;
+
+import static Model.cars.utility.CarBuilder.createCar;
 
 public class Controller {
     public static void main(String[] args) throws FileNotFoundException {
@@ -14,17 +20,17 @@ public class Controller {
         View.print(ts.toString() + "\n");
 
         View.print("After adding new car: ");
-        ts.addCar(new Automobile("BMW", "30489498", 45, 4));
+        ts.addCar(createCar(new Automobile("BMW", "30489498", 45, 4)));
         View.print(ts.toString() + "\n");
 
         View.print("After adding 3 cars: ");
-        ts.addCars(new Automobile("BMW", "65478PO", 577, 4),
-                new Automobile("BMW_Power", "98413", 595, 4),
-                new Automobile("OPEL_VIVARO", "UGKF45UJ", 45, 4));
+        ts.addCars(createCar(new Automobile("BMW", "65478PO", 577, 4)),
+                createCar(new Automobile("BMW_Power", "98413", 595, 4)),
+                createCar(new Automobile("OPEL_VIVARO", "UGKF45UJ", 45, 4)));
         View.print(ts.toString() + "\n");
 
         View.print("After adding a car to Position: ");
-        ts.addCarInPosition(3, new Automobile("BMW", "AE3876QA", 12564, 4));
+        ts.addCarInPosition(3, createCar(new Automobile("BMW", "AE3876QA", 12564, 4)));
         View.print(ts.toString() + "\n");
 
         View.print("After removing car from position: ");
@@ -33,7 +39,7 @@ public class Controller {
 
         View.print("\nCheck TaxiPark contains car: ");
         Automobile automobile = new Automobile("BMW", "AE3876QR", 12564, 4);
-        ts.addCarInPosition(4, automobile);
+        ts.addCarInPosition(4, createCar(automobile));
         View.print(ts.checkCarInTaxiPark(automobile));
 
         View.print("\nCar in position: ");
@@ -43,9 +49,16 @@ public class Controller {
         View.print(ts.deleteAllCars());
 
         View.print("\nAfter adding 3 cars: ");
-        ts.addCars(new Automobile("BMW_Usual", "II6547PO", 78717, 4, 581),
-                new Automobile("BMW_Power", "QW9841AS", 1000, 4, 45541),
-                new Automobile("OPEL_Vivaro", "UQ2222MN", 2545, 4, 545454));
+        ts.addCars(createCar(new Automobile("BMW_Usual", "II6547PO", 78717, 4, 581)),
+                createCar(new Automobile("BMW_Power", "QW9841AS", 1000, 4, 45541)),
+                createCar(new Automobile("OPEL_Vivaro", "UQ2222MN", 2545, 4, 545454)));
+        View.print(ts.toString() + "\n");
+
+        View.print("After adding 3 cars: ");
+        ts.addCars(new SedanCar("Opel_Super", "AS9999QA", 1200, 35421.45, 5, true),
+                new HatchbackCar("BMW_Quadro", "SW2546PO", 1000, 15324.48, "Password", false),
+                new CarrierCar("Mazda_Alfa", "LK1234WW", 1500, 5, 47205.9, 8),
+                new TransporterCar("BMW_Omega", "98413", 1400, 44927,58000.49, 3));
         View.print(ts.toString() + "\n");
 
         View.print("\nPrice of TaxiPark: ");
@@ -56,5 +69,6 @@ public class Controller {
 
         View.print("\nMin Price in TaxiPark: ");
         View.print(ts.countMinPriceTaxiPark());
+
     }
 }
