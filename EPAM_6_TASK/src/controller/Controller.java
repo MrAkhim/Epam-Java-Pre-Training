@@ -7,7 +7,7 @@ import view.View;
 
 import java.util.Random;
 
-public class Main {
+public class Controller {
     public static void main(String[] args) throws EmptyCollectionException, IllegalIndexException {
         MyArrayStack<Integer> myArrayStack = new MyArrayStack<>();
         MyArrayQueue<Integer> myArrayQueue = new MyArrayQueue<>();
