@@ -52,6 +52,10 @@ public class Controller {
             View.print("Does Tree contain key = " + key + "?:   " + tree.contains(key));
             View.print("Does Tree contain key = " + key3 + "?:   " + tree.contains(key3));
             View.print("Size of the Tree = " + tree.size());
+
+            View.print("Clear the Tree  ");
+            tree.clear();
+            View.print("Size of the Tree = " + tree.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
