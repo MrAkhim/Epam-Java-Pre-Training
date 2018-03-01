@@ -24,17 +24,33 @@ public class Controller {
             View.print("In-Order Detour: " + tree.passLCRDetour() + "\n");
             View.print("Breadth-First Detour: " + tree.passBFSDetour() + "\n");
 
-            int key = 2;
+            int key = 3;
             tree.remove(key);
-            View.print("\n\n After removing key = " + key + ":\n");
+            View.print("\n\n After removing key without children = " + key + ":\n");
             View.print("Pre-Order Detour: " + tree.passCLRDetour() + "\n");
             View.print("Post-Order Detour: " + tree.passLRCDetour() + "\n");
             View.print("In-Order Detour: " + tree.passLCRDetour() + "\n");
             View.print("Breadth-First Detour: " + tree.passBFSDetour() + "\n");
 
-            int key1 = 5;
+            int key1 = 15;
+            tree.remove(key1);
+            View.print("\n\n After removing key with 2 children = " + key1 + ":\n");
+            View.print("Pre-Order Detour: " + tree.passCLRDetour() + "\n");
+            View.print("Post-Order Detour: " + tree.passLRCDetour() + "\n");
+            View.print("In-Order Detour: " + tree.passLCRDetour() + "\n");
+            View.print("Breadth-First Detour: " + tree.passBFSDetour() + "\n");
+
+            int key2 = 4;
+            tree.remove(key2);
+            View.print("\n\n After removing key with 1 child = " + key2 + ":\n");
+            View.print("Pre-Order Detour: " + tree.passCLRDetour() + "\n");
+            View.print("Post-Order Detour: " + tree.passLRCDetour() + "\n");
+            View.print("In-Order Detour: " + tree.passLCRDetour() + "\n");
+            View.print("Breadth-First Detour: " + tree.passBFSDetour() + "\n");
+
+            int key3 = 5;
             View.print("Does Tree contain key = " + key + "?:   " + tree.contains(key));
-            View.print("Does Tree contain key = " + key1 + "?:   " + tree.contains(key1));
+            View.print("Does Tree contain key = " + key3 + "?:   " + tree.contains(key3));
             View.print("Size of the Tree = " + tree.size());
         } catch (Exception e) {
             e.printStackTrace();
