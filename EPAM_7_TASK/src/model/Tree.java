@@ -1,6 +1,7 @@
 package model;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import model.exceptions.*;
@@ -20,6 +21,30 @@ public class Tree<E extends Comparable> {
         @Override
         public int compareTo(E element) {
             return key.compareTo(element);
+        }
+
+        @Override
+        public String toString() {
+            return key.toString();
+        }
+
+        @Override
+        public boolean equals(Object element) {
+            if (element == null || getClass() != element.getClass()) {
+                return false;
+            }
+            if (this == element) {
+                return true;
+            }
+            Node<E> other = (Node<E>) element;
+            return key == other.key;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 1;
+            hash += hash * 31 + key.hashCode();
+            return hash;
         }
     }
 
@@ -178,5 +203,55 @@ public class Tree<E extends Comparable> {
             root.right = deleteNode(root.right, (E) root.key);
             return root;
         }
+    }
+
+    private ArrayList<E> transformNodesToList(){
+        return transformNodesToList(root, new ArrayList<E>());
+    }
+
+    private ArrayList<E> transformNodesToList(Node node, ArrayList<E> arrayList) {
+        if (node != null) {
+            transformNodesToList(node.left, arrayList);
+            arrayList.add((E)node.key);
+            transformNodesToList(node.right, arrayList);
+        }
+        return arrayList;
+    }
+
+    @Override
+    public String toString() {
+        return transformNodesToList().toString();
+    }
+
+    @Override
+    public boolean equals(Object element) {
+        if (element == null || getClass() != element.getClass()){
+            return false;
+        }
+        if (this == element){
+            return true;
+        }
+        Tree<E> otherTree = (Tree<E>)element;
+        ArrayList<E> arrayList = transformNodesToList();
+        ArrayList<E> otherArrayList = otherTree.transformNodesToList();
+        if (arrayList.size() != otherArrayList.size()){
+            return false;
+        }
+        for (int i = 0; i < arrayList.size(); i++){
+            if (otherArrayList.get(i) != arrayList.get(i)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 1;
+        ArrayList<E> arrayList = transformNodesToList();
+        for (E element : arrayList){
+            hash += hash * 31 + arrayList.hashCode();
+        }
+        return hash;
     }
 }
