@@ -8,10 +8,11 @@ public class Automobile extends Transport {
     private int doors;
     private double extraInformation;
 
-    public Automobile() {
-    }
+    public Automobile(){}
 
-    public Automobile(String model, String carID, double fuelConsumption, int doors) {
+    //public Automobile(String model, int carID, double fuelConsumption, int doors) {}
+
+    public Automobile(String model, int carID, double fuelConsumption, int doors) {
         super(model, carID);
         this.fuelConsumption = fuelConsumption;
         this.doors = doors;
@@ -19,7 +20,7 @@ public class Automobile extends Transport {
         price = 0;
     }
 
-    public Automobile(String model, String carID, double fuelConsumption, int doors, double extraInformation) {
+    public Automobile(String model, int carID, double fuelConsumption, int doors, double extraInformation) {
         super(model, carID);
         this.fuelConsumption = fuelConsumption;
         this.doors = doors;

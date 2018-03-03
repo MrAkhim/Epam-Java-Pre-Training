@@ -1,34 +1,25 @@
 package Model.cars.utility;
 
+import Factories.CarrierCarFactory;
+import Factories.HatchbackCarFactory;
+import Factories.SedanCarFactory;
+import Factories.TransporterCarFactory;
 import Model.cars.automobile.Automobile;
-import Model.cars.typesOfCars.CarrierCar;
-import Model.cars.typesOfCars.HatchbackCar;
-import Model.cars.typesOfCars.TransporterCar;
-import Model.cars.typesOfCars.SedanCar;
+
+import java.util.Random;
+
 public class CarBuilder {
 
-    public static Automobile createCar(String model, String ID, double fuelConsumption, double extraInformation, int doors) {
-        Automobile currentCar;
-        if (fuelConsumption > 1400) {
-            if (doors == 4) {
-                currentCar = new TransporterCar(model, ID, fuelConsumption, extraInformation);
-            } else {
-                currentCar = new CarrierCar(model, ID, fuelConsumption, (int)extraInformation);
-            }
-
-        } else {
-                if (doors == 4) {
-                    currentCar = new SedanCar(model, ID, fuelConsumption);
-                } else {
-                    currentCar = new HatchbackCar(model, ID, fuelConsumption);
-                }
-
-            }
-        currentCar.setPrice(Math.round(currentCar.getPrice() * 100) / 100.0);
-        return currentCar;
+    public static Automobile createCar() {
+        Random rnd = new Random();
+        int number=rnd.nextInt(4);
+        switch (number){
+            case 0: return TransporterCarFactory.createTransporterCar();
+            case 1: return CarrierCarFactory.createCarrierCar();
+            case 2: return SedanCarFactory.createHatchbackCar();
+            case 3: return HatchbackCarFactory.createHatchbackCar();
+        }
+        return new Automobile();
     }
 
-    public static Automobile createCar(Automobile automobile) {
-        return CarBuilder.createCar(automobile.getModel(), automobile.getID(), automobile.getFuelConsumption(), automobile.getExtraInformation(), automobile.getDoors());
-    }
 }

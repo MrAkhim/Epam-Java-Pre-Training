@@ -2,27 +2,14 @@ package Model.cars.typesOfCars;
 
 import Model.cars.automobile.Automobile;
 
-import java.util.Random;
-
 public class TransporterCar extends Automobile {
-
     private double maxCarryingWeight;
     private static final int DOORS = 4;
     private int amountHeavers;
 
-    public TransporterCar(String model,
-                          String carID,
-                          double fuelConsumption,
-                          double maxCarryingWeight) {
-        super(model, carID, fuelConsumption, DOORS);
-        this.setPrice(35000 + maxCarryingWeight * 0.5 + fuelConsumption * 4);
-        this.maxCarryingWeight = maxCarryingWeight;
-        Random rnd = new Random();
-        this.amountHeavers = rnd.nextInt(4);
-    }
 
     public TransporterCar(String model,
-                          String carID,
+                          int carID,
                           double fuelConsumption,
                           double maxCarryingWeight,
                           double price,

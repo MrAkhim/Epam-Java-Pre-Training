@@ -2,22 +2,22 @@ package Model.cars.transport;
 
 public abstract class Transport {
 
-    private String ID;
+    private int ID;
     private String model;
 
     protected Transport() {
     }
 
-    protected Transport(String model, String ID) {
+    protected Transport(String model, int ID) {
         this.model = model;
         this.ID = ID;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    protected void setID(String carID) {
+    protected void setID(int carID) {
         this.ID = carID;
     }
 
@@ -41,13 +41,13 @@ public abstract class Transport {
             return false;
         }
         Transport extra = (Transport) object;
-        return !(!extra.model.equals(model) || !extra.ID.equals(ID));
+        return !(!extra.model.equals(model) || extra.ID != ID);
     }
 
     @Override
     public int hashCode() {
         int hash = 1;
-        hash += hash * 33 + ID.hashCode() + model.hashCode();
+        hash += hash * 33 + ID + model.hashCode();
         return hash;
     }
 }

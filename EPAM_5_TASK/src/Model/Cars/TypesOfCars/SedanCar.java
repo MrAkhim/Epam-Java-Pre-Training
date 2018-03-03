@@ -7,23 +7,12 @@ import java.util.Random;
 
 public class SedanCar extends Automobile {
 
-    private static final int MAX_PASSENGERS = 5;
     private static final int DOORS = 4;
     private boolean hasRailings;
     private int comfortRating;
 
     public SedanCar(String model,
-                    String carID,
-                    double fuelConsumption) {
-        super(model, carID, fuelConsumption, DOORS);
-        this.setPrice(10000 + fuelConsumption * 4 + MAX_PASSENGERS * 0.6);
-        Random rnd = new Random();
-        this.hasRailings = rnd.nextBoolean();
-        this.comfortRating = rnd.nextInt(11);
-    }
-
-    public SedanCar(String model,
-                    String carID,
+                    int carID,
                     double fuelConsumption,
                     double price,
                     int comfortRating,

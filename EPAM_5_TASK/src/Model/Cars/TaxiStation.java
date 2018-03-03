@@ -1,21 +1,15 @@
 package Model.cars;
 
-import Controller.Users;
 import Model.cars.automobile.Automobile;
 import Model.cars.container.MyArrayList;
-
-import java.io.FileNotFoundException;
 
 
 public class TaxiStation extends MyArrayList {
 
     private MyArrayList<Automobile> carPool;
 
-    public TaxiStation(String fileName) throws FileNotFoundException {
-        carPool = Users.readCars(fileName);
-    }
-
     public TaxiStation() {
+        carPool = new MyArrayList<>();
     }
 
     public double countPriceTaxiPark() {
@@ -55,7 +49,6 @@ public class TaxiStation extends MyArrayList {
     }
 
     public void addCar(Automobile element) {
-
         carPool.add(element);
     }
 
